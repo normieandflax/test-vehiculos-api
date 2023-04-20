@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\ModeloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('cars.index');
 });
+
+Route::get('/models', [ModeloController::class, 'show']);
+
+Route::resource('cars', VehiculoController::class);
+
